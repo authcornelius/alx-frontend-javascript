@@ -9,24 +9,24 @@ interface Teacher {
 }
 
 const teacher3: Teacher = {
-  firstName: 'John',
-  lastName: 'Doe',
+  firstName: "John",
+  lastName: "Doe",
   fullTimeEmployee: false,
-  location: 'London',
+  location: "London",
   contract: false,
 };
 
 console.log(teacher3);
 
 // 2. Directors interface extending Teacher
-interface Directors extends Teacher {
+interface Director extends Teacher {
   numberOfReports: number;
 }
 
-const director1: Directors = {
-  firstName: 'John',
-  lastName: 'Doe',
-  location: 'London',
+const director1: Director = {
+  firstName: "John",
+  lastName: "Doe",
+  location: "London",
   fullTimeEmployee: true,
   numberOfReports: 17,
 };

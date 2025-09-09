@@ -1,41 +1,37 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const teacher3 = {
-    firstName: 'John',
-    lastName: 'Doe',
+var teacher3 = {
+    firstName: "John",
+    lastName: "Doe",
     fullTimeEmployee: false,
-    location: 'London',
+    location: "London",
     contract: false,
 };
 console.log(teacher3);
-const director1 = {
-    firstName: 'John',
-    lastName: 'Doe',
-    location: 'London',
+var director1 = {
+    firstName: "John",
+    lastName: "Doe",
+    location: "London",
     fullTimeEmployee: true,
     numberOfReports: 17,
 };
 console.log(director1);
-const printTeacher = (firstName, lastName) => {
-    return `${firstName.charAt(0)}. ${lastName}`;
+var printTeacher = function (firstName, lastName) {
+    return "".concat(firstName.charAt(0), ". ").concat(lastName);
 };
 console.log(printTeacher("John", "Doe")); // J. Doe
-class StudentClass {
-    firstName;
-    lastName;
-    constructor(firstName, lastName) {
+var StudentClass = /** @class */ (function () {
+    function StudentClass(firstName, lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-    workOnHomework() {
+    StudentClass.prototype.workOnHomework = function () {
         return "Currently working";
-    }
-    displayName() {
+    };
+    StudentClass.prototype.displayName = function () {
         return this.firstName;
-    }
-}
+    };
+    return StudentClass;
+}());
 // Example usage
-const student1 = new StudentClass("Jane", "Smith");
+var student1 = new StudentClass("Jane", "Smith");
 console.log(student1.displayName()); // Jane
 console.log(student1.workOnHomework()); // Currently working
-//# sourceMappingURL=main.js.map
