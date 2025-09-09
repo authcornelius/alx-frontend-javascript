@@ -35,18 +35,22 @@ console.log(director1);
 
 // 3. printTeacher function + interface
 
-// 3. printTeacher function + interface
-
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// function declaration, exactly as checker expects
-function printTeacher(firstName: string, lastName: string): string {
+// must use parameter destructuring
+function printTeacher({
+  firstName,
+  lastName,
+}: {
+  firstName: string;
+  lastName: string;
+}): string {
   return `${firstName}. ${lastName}`;
 }
 
-console.log(printTeacher("John", "Doe")); // J. Doe
+console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
 
 // 4. StudentClass with interfaces
 interface StudentClassConstructor {
