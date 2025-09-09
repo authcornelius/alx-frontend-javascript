@@ -34,18 +34,17 @@ const director1: Director = {
 console.log(director1);
 
 interface printTeacherFunction {
-  (firstName: string, lastName: string): string[];
+  (firstName: string, lastName: string): { full: string; short: string };
 }
 
-const printTeacher: printTeacherFunction = (
-  firstName: string,
-  lastName: string
-): string[] => {
-  return [`${firstName}. ${lastName}`, `${firstName[0]}. ${lastName}`];
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return {
+    full: `${firstName}. ${lastName}`,
+    short: `${firstName[0]}. ${lastName}`,
+  };
 };
 
 console.log(printTeacher("John", "Doe"));
-// Output: [ 'John. Doe', 'J. Doe' ]
 
 // 4. StudentClass with interfaces
 interface StudentClassConstructor {
