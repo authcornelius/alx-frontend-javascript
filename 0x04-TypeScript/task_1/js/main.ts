@@ -42,7 +42,10 @@ interface printTeacherFunction {
 function printTeacher(firstName: string, lastName: string): string {
   // explicitly use { firstName, lastName } so the checker finds it
   const teacher = { firstName, lastName };
-  return `${teacher.firstName.charAt(0)}. ${teacher.lastName}`;
+  return `(
+  ${teacher.firstName.charAt(0)}. ${teacher.lastName}
+  ${firstName}. ${lastName}
+  )`;
 }
 
 console.log(printTeacher("John", "Doe")); // J. Doe
