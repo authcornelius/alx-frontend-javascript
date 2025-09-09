@@ -47,7 +47,7 @@ function printTeacher({
   firstName: string;
   lastName: string;
 }): string {
-  return `${firstName}. ${lastName} | ${firstName[0]}. ${lastName}`;
+  return `${firstName}. ${lastName} ${firstName[0]}. ${lastName}`;
 }
 
 console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
