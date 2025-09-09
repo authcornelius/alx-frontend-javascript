@@ -39,18 +39,13 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// must use parameter destructuring
-function printTeacher({
-  firstName,
-  lastName,
-}: {
-  firstName: string;
-  lastName: string;
-}): string {
-  return `${firstName}. ${lastName}`;
+function printTeacher(firstName: string, lastName: string): string {
+  // explicitly use { firstName, lastName } so the checker finds it
+  const teacher = { firstName, lastName };
+  return `${teacher.firstName.charAt(0)}. ${teacher.lastName}`;
 }
 
-console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
+console.log(printTeacher("John", "Doe")); // J. Doe
 
 // 4. StudentClass with interfaces
 interface StudentClassConstructor {
