@@ -38,15 +38,10 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-function printTeacher({
-  firstName,
-  lastName,
-}: {
-  firstName: string;
-  lastName: string;
-}): string {
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
   return `${firstName}. ${lastName}`;
 }
+
 
 // Example usage
 console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // John. Doe
