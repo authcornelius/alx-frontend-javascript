@@ -46,6 +46,22 @@ function createEmployee(salary: number | string): Director | Teacher {
   return new Director();
 }
 
+// String literal type
+type Subjects = "Math" | "History";
+
+// teachClass function
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === "Math") {
+    return "Teaching Math";
+  } else {
+    return "Teaching History";
+  }
+}
+
+// Example usage
+console.log(teachClass("Math")); // Teaching Math
+console.log(teachClass("History")); // Teaching History
+
 // ---- Example usage ----
 console.log(createEmployee(200)); // Teacher
 console.log(createEmployee(1000)); // Director
