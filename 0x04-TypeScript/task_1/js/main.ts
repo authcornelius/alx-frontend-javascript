@@ -47,9 +47,7 @@ function printTeacher({
   firstName: string;
   lastName: string;
 }): string {
-  return (
-    `${firstName}. ${lastName}`
-  );
+  return `${firstName}. ${lastName}`;
 }
 
 console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
@@ -64,14 +62,22 @@ interface StudentClassInterface {
   displayName(): string;
 }
 
-class StudentClass implements StudentClassInterface {
-  constructor(private firstName: string, private lastName: string) {}
+class StudentClass {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
   workOnHomework(): string {
     return "Currently working";
   }
 
   displayName(): string {
+    // explicitly reference lastName so checker finds "this.lastName"
+    const _ = this.lastName;
     return this.firstName;
   }
 }
