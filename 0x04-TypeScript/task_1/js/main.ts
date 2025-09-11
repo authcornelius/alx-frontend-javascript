@@ -15,31 +15,44 @@ const teacher3: Teacher = {
   location: "London",
   contract: false,
 };
+
 console.log(teacher3);
 
 // 2. Directors interface extending Teacher
-interface Directors extends Teacher {
+interface Director extends Teacher {
   numberOfReports: number;
 }
 
-const director1: Directors = {
+const director1: Director = {
   firstName: "John",
   lastName: "Doe",
   location: "London",
   fullTimeEmployee: true,
   numberOfReports: 17,
 };
+
 console.log(director1);
 
 // 3. printTeacher function + interface
+
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
-  return `${firstName[0]}. ${lastName}`;
-};
-console.log(printTeacher("John", "Doe")); // J. Doe
+// must use parameter destructuring
+function printTeacher({
+  firstName,
+  lastName,
+}: {
+  firstName: string;
+  lastName: string;
+}): string {
+  return (
+    `${firstName}. ${lastName}`
+  );
+}
+
+console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
 
 // 4. StudentClass with interfaces
 interface StudentClassConstructor {
@@ -51,22 +64,14 @@ interface StudentClassInterface {
   displayName(): string;
 }
 
-class StudentClass {
-  firstName: string;
-  lastName: string;
-
-  constructor(firstName: string, lastName: string) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
+class StudentClass implements StudentClassInterface {
+  constructor(private firstName: string, private lastName: string) {}
 
   workOnHomework(): string {
     return "Currently working";
   }
 
   displayName(): string {
-    // explicitly reference lastName so checker finds "this.lastName"
-    const _ = this.lastName;
     return this.firstName;
   }
 }
