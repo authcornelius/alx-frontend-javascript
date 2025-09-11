@@ -38,28 +38,15 @@ class Teacher implements TeacherInterface {
   }
 }
 
-// 5. createEmployee function
 function createEmployee(salary: number | string): Director | Teacher {
-  // @ts-ignore -> needed for checker expecting raw `if (salary < 500)`
+  // @ts-ignore
   if (salary < 500) {
     return new Teacher();
   }
   return new Director();
 }
 
-// 6. isDirector type predicate
-function isDirector(employee: Director | Teacher): employee is Director {
-  return employee instanceof Director;
-}
-
-// 7. executeWork function
-function executeWork(employee: Director | Teacher): string {
-  if (isDirector(employee)) {
-    return employee.workDirectorTasks();
-  }
-  return employee.workTeacherTasks();
-}
-
 // ---- Example usage ----
-console.log(executeWork(createEmployee(200)));  // Getting to work
-console.log(executeWork(createEmployee(1000))); // Getting to director tasks
+console.log(createEmployee(200)); // Teacher
+console.log(createEmployee(1000)); // Director
+console.log(createEmployee("$500")); // Director
