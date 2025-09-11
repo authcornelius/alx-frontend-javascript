@@ -45,7 +45,6 @@ function createEmployee(salary: number | string): Director | Teacher {
   return new Director();
 }
 
-
 // ---- Example usage ----
 console.log(createEmployee(200)); // Teacher
 console.log(createEmployee(1000)); // Director
